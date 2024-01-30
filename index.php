@@ -2,33 +2,38 @@
     class Movie{
         public $name;
         public $year;
-        public $genre;
+        public $genres;
         public $adults;
 
         function __construct($_name, $_year, $_genre){
             $this->name = $_name;
             $this->year = $_year;
-            $this->genre = $_genre;
+            $this->genres = $_genre;
         }
 
-        public function setAdultsCalculate($genre){
-            if($genre == 'Horror'){
-                $this->adults = 'Solo maggiorenni';
-            }else{
-                $this->adults = 'Tutte le età';
-            }
+        public function setAdultsCalculate($genres){
+            $this->adults = in_array('Horror', $genres);
         }
 
         public function getAdultsCalculate(){
-            return $this->adults;
+            return $this->adults ? 'Solo maggiorenni' : 'Tutte le età';
         }
     }
 
-    $film_1 = new Movie('DemoA', 2000, 'Horror');
-    $film_1->setAdultsCalculate($film_1->genre);
+    $film_1 = new Movie('DemoA', 2000, ['Horror', 'Thriller']);
+    $film_1->setAdultsCalculate($film_1->genres);
 
     echo $film_1->name.' ';
     echo $film_1->year.' ';
-    echo $film_1->genre.' ';
+    echo implode(', ', $film_1->genres).' ';
     echo $film_1->getAdultsCalculate();
+
+    echo '<br>';
+    $film_2 = new Movie('DemoC', 2010, ['Drammatico']);
+    $film_2->setAdultsCalculate($film_2->genres);
+
+    echo $film_2->name.' ';
+    echo $film_2->year.' ';
+    echo implode(', ', $film_2->genres).' ';
+    echo $film_2->getAdultsCalculate();
 ?>
