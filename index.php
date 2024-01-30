@@ -23,16 +23,8 @@
     $film_1 = new Movie('DemoA', 2000, ['Horror', 'Thriller']);
     $film_1->setAdultsCalculate($film_1->genres);
 
-    $film_1->name.' ';
-    $film_1->year.' ';
-    implode(', ', $film_1->genres).' ';
-    $film_1->getAdultsCalculate();
 
     $film_2 = new Movie('DemoC', 2010, ['Drammatico']);
-    $film_2->setAdultsCalculate($film_2->genres);
-    $film_2->name.' ';
-    $film_2->year.' ';
-    implode(', ', $film_2->genres).' ';
     $film_2->getAdultsCalculate();
 ?>
 <!DOCTYPE html>
@@ -44,15 +36,15 @@
 </head>
 <body>
     <ul>
-        <li><?php  echo $film_1->name.' ';?></li>
-        <li><?php  echo $film_1->year.' ';?></li>
-        <li><?php  echo implode(', ', $film_1->genres).' ';?></li>
+        <li><?php  echo $film_1->name;?></li>
+        <li><?php  echo $film_1->year;?></li>
+        <li><?php  echo implode(', ', $film_1->genres);?></li>
         <li><?php  echo $film_1->getAdultsCalculate(); ?></li>
     </ul>
     <ul>
-        <li><?php  echo $film_2->name.' ';?></li>
-        <li><?php  echo $film_2->year.' ';?></li>
-        <li><?php  echo implode(', ', $film_2->genres).' ';?></li>
+        <li><?php  echo $film_2->name;?></li>
+        <li><?php  echo $film_2->year;?></li>
+        <li><?php  echo implode(', ', $film_2->genres);?></li>
         <li><?php  echo $film_2->getAdultsCalculate(); ?></li>
     </ul>
 </body>
