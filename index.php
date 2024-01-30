@@ -10,13 +10,25 @@
             $this->year = $_year;
             $this->genre = $_genre;
         }
+
+        public function setAdultsCalculate($genre){
+            if($genre == 'Horror'){
+                $this->adults = 'Solo maggiorenni';
+            }else{
+                $this->adults = 'Tutte le età';
+            }
+        }
+
+        public function getAdultsCalculate(){
+            return $this->adults;
+        }
     }
 
-    $film_1 = new Movie('DemoA', 2000, 'DemoB');
-    $film_1->adults = 'Sì';
+    $film_1 = new Movie('DemoA', 2000, 'Horror');
+    $film_1->setAdultsCalculate($film_1->genre);
 
     echo $film_1->name.' ';
     echo $film_1->year.' ';
     echo $film_1->genre.' ';
-    echo $film_1->adults;
+    echo $film_1->getAdultsCalculate();
 ?>
